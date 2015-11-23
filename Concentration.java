@@ -16,7 +16,7 @@ public class Concentration {
 	for(int i = 0;i < _numRows;i++) {
 	    for(int j = 0; j < _numRows;j++) {
 		int wordN = (int)(Math.random()*16);
-		while(!_words[wordN].equals(" ")) {
+		while(_words[wordN].equals(" ")) {
 		    wordN = (int)(Math.random()*16);
 		}
 		_board[i][j] = new Tile(_words[wordN]);
