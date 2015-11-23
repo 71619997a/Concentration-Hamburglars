@@ -24,7 +24,34 @@ public class Concentration {
 	    }
 	}
     }
-    
+    //precond: both tiles assumed to be facing up because user just picked them
+    //This function checks if a and b match, and flips accordingly
+    public void processMatch(Tile a, Tile b) {
+	if(!a.equals(b)) {
+	    a.flip();
+	    b.flip();
+	}
+    }
+    //Takes coordinates as input and flips those tiles, prints them, sends to processmatch
+    public void flipFromInput() {
+	System.out.println("Enter x-coordinate of the first tile: ");
+	int x1 = Keyboard.readInt();
+	System.out.println("Enter y-coordinate of the first tile: ");
+	int y1 = Keyboard.readInt();
+	System.out.println("Enter x-coordinate of the second tile: ");
+	int x2 = Keyboard.readInt();
+	System.out.println("Enter y-coordinate of the second tile: ");
+	int y2 = Keyboard.readInt();
+	
+	Tile tile1 = _board[x1][y1];
+	Tile tile2 = _board[x2][y2];
+	tile1.flip();
+	tile2.flip();
+
+	printBoard();
+	processMatch(tile1,tile2);
+	
+
     //DO NOT MODIFY main()
     public static void main(String[] args){
 	Concentration game = new Concentration();
