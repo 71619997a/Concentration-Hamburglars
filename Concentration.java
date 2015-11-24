@@ -41,6 +41,9 @@ public class Concentration {
 	    System.out.println("No match! Try again:");
 	    printBoard();
 	}
+	else {
+	    System.out.println("Match found!");
+	}
     }
     //Takes coordinates as input and flips those tiles, prints them, sends to processmatch
     public void flipFromInput() {
@@ -55,6 +58,10 @@ public class Concentration {
 	
 	Tile tile1 = _board[x1][y1];
 	Tile tile2 = _board[x2][y2];
+	if(tile1.isFaceUp() || tile2.isFaceUp() || (x1 == x2 && y1 == y2)) {
+	    System.out.println("Invalid input.");
+	    return;
+	}
 	tile1.flip();
 	tile2.flip();
 	_numberFaceUp += 2;
