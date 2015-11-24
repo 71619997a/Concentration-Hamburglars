@@ -44,13 +44,13 @@ public class Concentration {
     }
     //Takes coordinates as input and flips those tiles, prints them, sends to processmatch
     public void flipFromInput() {
-	System.out.println("Enter x-coordinate of the first tile: ");
+	System.out.println("Enter row of the first tile: ");
 	int x1 = Keyboard.readInt();
-	System.out.println("Enter y-coordinate of the first tile: ");
+	System.out.println("Enter column of the first tile: ");
 	int y1 = Keyboard.readInt();
-	System.out.println("Enter x-coordinate of the second tile: ");
+	System.out.println("Enter row of the second tile: ");
 	int x2 = Keyboard.readInt();
-	System.out.println("Enter y-coordinate of the second tile: ");
+	System.out.println("Enter column of the second tile: ");
 	int y2 = Keyboard.readInt();
 	
 	Tile tile1 = _board[x1][y1];
