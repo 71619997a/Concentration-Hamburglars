@@ -8,9 +8,11 @@ public class Concentration {
     private int _numberFaceUp;   //count of Tiles with faces visible
     private String[] _words = {"A","B","C","D","E","F","G","H","A","B","C","D","E","F","G","H"};     //list of unique Strings used for Tile vals
     private static int _numRows = 4;
+    private int _numberMoves;
 
     //insert constructor and methods here
     public Concentration() {
+	_numberMoves = 0;
 	_numberFaceUp = 0;
 	_board = new Tile[_numRows][_numRows];
 	for(int i = 0;i < _numRows;i++) {
@@ -30,6 +32,9 @@ public class Concentration {
 	if(!a.equals(b)) {
 	    a.flip();
 	    b.flip();
+	    _numberFaceUp -= 2;
+	    System.out.println("No match! Try again:");
+	    printBoard();
 	}
     }
     //Takes coordinates as input and flips those tiles, prints them, sends to processmatch
@@ -47,9 +52,28 @@ public class Concentration {
 	Tile tile2 = _board[x2][y2];
 	tile1.flip();
 	tile2.flip();
+	_numberFaceUp += 2;
+	_numberMoves += 1;
 
 	printBoard();
 	processMatch(tile1,tile2);
+    }
+
+    public void printBoard() {
+	for (Tile[] i : _board) {
+	    for (Tile i2: i) {
+		System.out.print(i2.toString() + "\t");
+	    }
+	    System.out.println();
+	}
+    }
+    
+    public void play() {
+	while (_numberFaceUp < (16)) {
+	    flipFromInput();
+	}
+	System.out.println("Congratulations! You won in " + _numberMoves + " moves!");
+    }
 	
 
     //DO NOT MODIFY main()
